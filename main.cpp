@@ -1,21 +1,11 @@
-#include <iostream>
-#include <fstream>
 #include "SudokuSolver.h"
 #include "SudokuGenerator.h"
-
-constexpr int width = 9;
-constexpr int height = 9;
-
-void LoadBoard(int *board){
-    std::fstream input("input.txt");
-    for(int r=0;r<height*width;r++){
-        input>>board[r];
-    }
-}
+#include <iostream>
+#include <fstream>
 
 int main(){
     SudokuGenerator sudokuGenerator("database.txt");
-    SudokuSolver sudokuSolver(sudokuGenerator.GetBoard(0));
+    SudokuSolver sudokuSolver(sudokuGenerator.GenerateBoard());
     sudokuSolver.Display();
  
     if(sudokuSolver.Solve())    std::cout<<"solved\n";

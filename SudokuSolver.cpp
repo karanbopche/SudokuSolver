@@ -9,8 +9,9 @@ SudokuSolver::SudokuSolver(int *array)
     }
 }
 
-SudokuSolver::SudokuSolver(Board board){
-    this->board = board;
+SudokuSolver::SudokuSolver(Board board)
+{
+    this->board = std::move(board);
 }
 
 bool SudokuSolver::Solve()
@@ -20,7 +21,8 @@ bool SudokuSolver::Solve()
 
 bool SudokuSolver::boardSolver(int row, int col)
 {
-    if(board.isSolved()) return true;
+    if (board.isSolved())
+        return true;
     while (board.isEditable(row, col) == false)
     {
         col++;
@@ -33,7 +35,7 @@ bool SudokuSolver::boardSolver(int row, int col)
     {
         if (board.isSafe(row, col, num))
         {
-            this->board.board[index(row,col)] = num;
+            this->board.board[index(row, col)] = num;
             if (boardSolver(row, col))
             {
                 return true;

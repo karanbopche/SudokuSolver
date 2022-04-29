@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
+#include <time.h>
 
 SudokuGenerator::SudokuGenerator(const char* databaseFile){
     std::fstream input(databaseFile);
@@ -32,6 +33,7 @@ Board SudokuGenerator::GetBoard(int index){
 }
 
 Board SudokuGenerator::GenerateBoard(){
+    srand(time(0));
     int index = rand()%boards.size();
     return boards[index];
 }

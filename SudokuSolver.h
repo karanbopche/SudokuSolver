@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Boards.h"
+#include "Board.h"
 
 class SudokuSolver
 {

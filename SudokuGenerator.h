@@ -1,7 +1,7 @@
 #pragma once
 #include <array>
 #include <vector>
-#include "Boards.h"
+#include "Board.h"
 
 class SudokuGenerator{
 public:
